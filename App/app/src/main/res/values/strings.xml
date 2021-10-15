@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">washl</string>
+
+    <string-array name="pilihan_cucian">
+        <item>Cuci Kering</item>
+        <item>Cuci Basah</item>
+        <item>Cuci Setrika</item>
+        <item>Setrika</item>
+    </string-array>
+
+    <string-array name="pilihan_order">
+    <item>Pesan Antar</item>
+    <item>Antar Sendirri</item> </string-array>
+
+</resources>
