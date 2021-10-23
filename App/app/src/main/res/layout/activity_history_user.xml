@@ -39,32 +39,15 @@
         app:layout_constraintVertical_bias="0.042"
         app:srcCompat="@drawable/arrow_back" />
 
-    <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="334dp"
-        android:layout_height="118dp"
-        android:layout_marginStart="2dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerHistoryUsr"
+        android:layout_width="410dp"
+        android:layout_height="650dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
-        app:layout_constraintVertical_bias="0.072"
-        app:srcCompat="@drawable/formhistoryuser" />
-
-    <TextView
-        android:id="@+id/textView34"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="12 Kg"
-        android:textColor="#FFFFFF"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView17"
-        app:layout_constraintEnd_toEndOf="@+id/imageView17"
-        app:layout_constraintHorizontal_bias="0.061"
-        app:layout_constraintStart_toStartOf="@+id/imageView17"
-        app:layout_constraintTop_toTopOf="@+id/imageView17"
-        app:layout_constraintVertical_bias="0.487" />
+        app:layout_constraintVertical_bias="0.35000002" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

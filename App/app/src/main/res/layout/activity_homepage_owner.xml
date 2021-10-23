@@ -16,7 +16,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01999998"
+        app:layout_constraintVertical_bias="0.024"
         app:srcCompat="@drawable/w1" />
 
     <ImageView
@@ -25,9 +25,10 @@
         android:layout_height="152dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView10"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.034"
         app:srcCompat="@drawable/bginfoowner" />
 
     <TextView
@@ -65,10 +66,10 @@
         android:layout_height="84dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView14"
-        app:layout_constraintVertical_bias="0.019"
+        app:layout_constraintVertical_bias="0.041"
         app:srcCompat="@drawable/salary" />
 
     <TextView
@@ -81,10 +82,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView15"
         app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintHorizontal_bias="0.795"
+        app:layout_constraintHorizontal_bias="0.813"
         app:layout_constraintStart_toStartOf="@+id/imageView15"
         app:layout_constraintTop_toBottomOf="@+id/imageView14"
-        app:layout_constraintVertical_bias="0.513" />
+        app:layout_constraintVertical_bias="0.591" />
 
     <TextView
         android:id="@+id/textView31"
@@ -96,10 +97,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintHorizontal_bias="0.181"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView15"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintVertical_bias="0.06999999" />
 
     <ImageView
         android:id="@+id/imageView16"
@@ -108,10 +109,10 @@
         android:layout_marginEnd="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.577"
+        app:layout_constraintHorizontal_bias="0.552"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView31"
-        app:layout_constraintVertical_bias="0.829"
+        app:layout_constraintVertical_bias="0.908"
         app:srcCompat="@drawable/bgnavbar" />
 
     <ImageButton

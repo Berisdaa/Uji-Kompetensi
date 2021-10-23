@@ -90,10 +90,10 @@
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toEndOf="@+id/btnStruk"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.625"
+        app:layout_constraintVertical_bias="0.734"
         app:srcCompat="@drawable/historyon" />
 
     <ImageButton
@@ -106,10 +106,10 @@
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.135"
+        app:layout_constraintHorizontal_bias="0.136"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.625"
+        app:layout_constraintVertical_bias="0.74"
         app:srcCompat="@drawable/strukon" />
 
     <ImageButton

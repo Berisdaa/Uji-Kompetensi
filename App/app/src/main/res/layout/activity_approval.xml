@@ -37,25 +37,13 @@
         app:layout_constraintVertical_bias="0.045"
         app:srcCompat="@drawable/arrow_back2" />
 
-    <Button
-        android:id="@+id/btnAproveOrder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next "
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerOrder"
+        android:layout_width="410dp"
+        android:layout_height="650dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView20" />
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
-    <ImageView
-        android:id="@+id/imageView20"
-        android:layout_width="334dp"
-        android:layout_height="118dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView28"
-        app:layout_constraintVertical_bias="0.069"
-        app:srcCompat="@drawable/formapprove" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,8 @@
 package com.risda.washl;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,14 +19,25 @@ public class Approval extends AppCompatActivity {
         ImageButton home = findViewById(R.id.btnBackHome3);
         home.setOnClickListener(v -> openHome());
 
-        Button form = findViewById(R.id.btnAproveOrder);
-        form.setOnClickListener(v -> openForm());
+        RecyclerView recyclerView = findViewById(R.id.recyclerOrder);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        approvalStr[] approvalStrs = new approvalStr[]{
+                new approvalStr("8", "Irish", "Berlin", "Cuci Kering"),
+                new approvalStr("9", "Reihan", "Jakarta", "Cuci Basah"),
+                new approvalStr("5", "Yuki", "Tokyo", "Cuci Basah"),
+                new approvalStr("2", "Rio", "Barcelona", "Cuci Setrika"),
+                new approvalStr("4", "Maria", "Adelaide", "Setrika"),
+                new approvalStr("7", "Christy", "London", "Cuci Kering"),
+                new approvalStr("3", "Sheila", "New York", "Setrika"),
+        };
+
+        approvalAdapter ApprovalAdapter = new approvalAdapter(approvalStrs, Approval.this);
+        recyclerView.setAdapter(ApprovalAdapter);
+
     }
 
-    private void openForm() {
-        Intent f = new Intent(Approval.this, ApprovalOrder.class);
-        startActivity(f);
-    }
 
     private void openHome() {
         Intent h = new Intent(Approval.this, HomepageOwner.class);

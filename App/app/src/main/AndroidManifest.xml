@@ -27,7 +27,8 @@
         <activity
             android:name=".SearchBar"
             android:noHistory="true" />
-        <activity android:name=".HistoryUser" />
+        <activity android:name=".HistoryUser"
+            android:noHistory="true"/>
         <activity
             android:name=".Struk"
             android:noHistory="true" />
@@ -35,7 +36,8 @@
         <activity
             android:name=".HomepageOwner"
             android:noHistory="true" />
-        <activity android:name=".HomepageUser" />
+        <activity android:name=".HomepageUser"
+            android:noHistory="true"/>
         <activity android:name=".RegisterOwner2" />
         <activity android:name=".RegisterOwner" />
         <activity android:name=".LoginOwner" />
