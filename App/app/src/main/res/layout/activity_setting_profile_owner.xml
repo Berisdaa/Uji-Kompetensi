@@ -13,35 +13,36 @@
         android:backgroundTint="#FAE765"
         android:text="CONFIRM"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.414"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextNumber2"
-        app:layout_constraintVertical_bias="0.544" />
+        app:layout_constraintVertical_bias="0.219" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:layout_width="95dp"
         android:layout_height="45dp"
         android:backgroundTint="#B6EAEA"
         android:text="SUBMIT"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toEndOf="@+id/editTextNumber2"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName12"
-        app:layout_constraintVertical_bias="0.261" />
+        app:layout_constraintVertical_bias="0.286" />
 
     <Spinner
         android:id="@+id/spinner2"
-        android:layout_width="250dp"
-        android:layout_height="28dp"
+        android:layout_width="300dp"
+        android:layout_height="27dp"
         android:entries="@array/pilihan_cucian"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.263"
+        app:layout_constraintHorizontal_bias="0.405"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView32"
         app:layout_constraintVertical_bias="0.0" />
@@ -54,10 +55,10 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName12"
-        app:layout_constraintVertical_bias="0.067" />
+        app:layout_constraintVertical_bias="0.064" />
 
     <EditText
         android:id="@+id/editTextNumber2"
@@ -67,7 +68,7 @@
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.195"
+        app:layout_constraintHorizontal_bias="0.213"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner2"
         app:layout_constraintVertical_bias="0.0" />
@@ -157,4 +158,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName11"
         app:layout_constraintVertical_bias="0.097" />
+
+    <Button
+        android:id="@+id/btnLogoutOwner"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#E83535"
+        android:text="LOG OUT"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegisterFinal2"
+        app:layout_constraintVertical_bias="0.219" />
 </androidx.constraintlayout.widget.ConstraintLayout>

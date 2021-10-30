@@ -41,10 +41,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView14"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintHorizontal_bias="0.304"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView14"
-        app:layout_constraintVertical_bias="0.166" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <TextView
         android:id="@+id/textView27"
@@ -55,10 +55,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView14"
         app:layout_constraintEnd_toEndOf="@+id/imageView14"
-        app:layout_constraintHorizontal_bias="0.254"
+        app:layout_constraintHorizontal_bias="0.353"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18"
-        app:layout_constraintVertical_bias="0.197" />
+        app:layout_constraintVertical_bias="0.363" />
 
     <ImageView
         android:id="@+id/imageView15"
@@ -97,14 +97,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.181"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView15"
-        app:layout_constraintVertical_bias="0.06999999" />
+        app:layout_constraintVertical_bias="0.09" />
 
     <ImageView
         android:id="@+id/imageView16"
-        android:layout_width="340dp"
+        android:layout_width="330dp"
         android:layout_height="80dp"
         android:layout_marginEnd="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -114,6 +114,30 @@
         app:layout_constraintTop_toBottomOf="@+id/textView31"
         app:layout_constraintVertical_bias="0.908"
         app:srcCompat="@drawable/bgnavbar" />
+
+
+    <LinearLayout
+        android:layout_width="330dp"
+        tools:context=".HomepageOwner"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView31"
+        app:layout_constraintVertical_bias="0.125">
+
+        <GridView
+            android:id="@+id/gridHasil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:horizontalSpacing="25dp"
+            android:numColumns="2"
+            android:verticalSpacing="25dp" />
+
+    </LinearLayout>
 
     <ImageButton
         android:id="@+id/btnCompletedOrder"

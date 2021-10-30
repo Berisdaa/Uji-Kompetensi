@@ -65,6 +65,7 @@
         app:layout_constraintVertical_bias="0.292"
         app:srcCompat="@drawable/image" />
 
+
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
@@ -75,42 +76,23 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView12"
-        app:layout_constraintVertical_bias="0.072" />
+        app:layout_constraintVertical_bias="0.036" />
 
     <ImageButton
-        android:id="@+id/btnHistory"
-        android:layout_width="150dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="148dp"
+        android:id="@+id/More"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:background="@null"
-        android:elevation="5dp"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/ic_more"
+        app:layout_constraintBottom_toTopOf="@+id/imageView12"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
-        app:layout_constraintStart_toEndOf="@+id/btnStruk"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.734"
-        app:srcCompat="@drawable/historyon" />
-
-    <ImageButton
-        android:id="@+id/btnStruk"
-        android:layout_width="150dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="148dp"
-        android:background="@null"
-        android:elevation="5dp"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.136"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.74"
-        app:srcCompat="@drawable/strukon" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btnSearchBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.392"
+      />
 
     <ImageButton
         android:id="@+id/btnSearchBar"
@@ -121,11 +103,22 @@
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintHorizontal_bias="0.789"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.075"
+        app:layout_constraintVertical_bias="0.072"
         app:srcCompat="@drawable/ic_baseline_search_24" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerLaundryHome"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

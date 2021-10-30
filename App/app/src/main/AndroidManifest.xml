@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.risda.washl" >
+    package="com.risda.washl">
 
     <application
         android:allowBackup="true"
@@ -8,9 +8,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Washl" >
-        <activity android:name=".ApprovalOrder" >
-        </activity>
+        android:theme="@style/Theme.Washl">
+        <activity android:name=".displayLaundry"></activity>
+        <activity
+            android:name=".ProfileUser"
+            android:noHistory="true" />
+        <activity
+            android:name=".ApprovalOrder"
+            android:noHistory="true" />
         <activity android:name=".FormOrder" />
         <activity
             android:name=".SettingProfileOwner"
@@ -27,8 +32,9 @@
         <activity
             android:name=".SearchBar"
             android:noHistory="true" />
-        <activity android:name=".HistoryUser"
-            android:noHistory="true"/>
+        <activity
+            android:name=".HistoryUser"
+            android:noHistory="true" />
         <activity
             android:name=".Struk"
             android:noHistory="true" />
@@ -36,8 +42,9 @@
         <activity
             android:name=".HomepageOwner"
             android:noHistory="true" />
-        <activity android:name=".HomepageUser"
-            android:noHistory="true"/>
+        <activity
+            android:name=".HomepageUser"
+            android:noHistory="true" />
         <activity android:name=".RegisterOwner2" />
         <activity android:name=".RegisterOwner" />
         <activity android:name=".LoginOwner" />
@@ -46,7 +53,7 @@
         <activity android:name=".AsOwner" />
         <activity android:name=".AsUser" />
         <activity android:name=".UserOrOwner" />
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -9,7 +9,8 @@
     </string-array>
 
     <string-array name="pilihan_order">
-    <item>Pesan Antar</item>
-    <item>Antar Sendirri</item> </string-array>
+        <item>Pesan Antar</item>
+        <item>Antar Sendirri</item>
+    </string-array>
 
 </resources>

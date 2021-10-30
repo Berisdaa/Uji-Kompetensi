@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 public class CustomerList extends AppCompatActivity {
 
-    Button button;
     GridView gridView;
 
     String[] names = {"Andi","Rudi","Sarah","Bella","Reno","Bianca","Yuki","Jaemin","Natasha","Jake"};
@@ -32,9 +31,7 @@ public class CustomerList extends AppCompatActivity {
         home.setOnClickListener(v -> openHome());
 
         gridView = findViewById(R.id.gridCustomer);
-
         customerAdapter CustomerAdapter = new customerAdapter(names, images, this);
-
         gridView.setAdapter(CustomerAdapter);
 
     }
@@ -76,7 +73,7 @@ public class CustomerList extends AppCompatActivity {
         public View getView(int position, View view, ViewGroup viewGroup) {
 
             if (view == null){
-                view = layoutInflater.inflate(R.layout.row_items, viewGroup, false);
+                view = layoutInflater.inflate(R.layout.row_customer, viewGroup, false);
             }
 
             TextView tvCustomer = view.findViewById(R.id.tvUserList);
