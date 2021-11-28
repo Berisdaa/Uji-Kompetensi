@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.risda.washl">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,12 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Washl">
-        <activity android:name=".displayLaundry"></activity>
+        <activity
+            android:name=".LupaPasswordUser"
+            android:exported="false" />
+        <activity
+            android:name=".SettingProduk"
+            android:exported="false" />
+        <activity android:name=".detailOrder" />
+        <activity android:name=".displayLaundry" />
         <activity
             android:name=".ProfileUser"
-            android:noHistory="true" />
-        <activity
-            android:name=".ApprovalOrder"
             android:noHistory="true" />
         <activity android:name=".FormOrder" />
         <activity
@@ -35,21 +42,12 @@
         <activity
             android:name=".HistoryUser"
             android:noHistory="true" />
-        <activity
-            android:name=".Struk"
-            android:noHistory="true" />
-        <activity android:name=".RegisterUser2" />
-        <activity
-            android:name=".HomepageOwner"
-            android:noHistory="true" />
-        <activity
-            android:name=".HomepageUser"
-            android:noHistory="true" />
-        <activity android:name=".RegisterOwner2" />
-        <activity android:name=".RegisterOwner" />
-        <activity android:name=".LoginOwner" />
-        <activity android:name=".RegisterUser" />
-        <activity android:name=".LoginUser" />
+        <activity android:name=".HomepageOwner" />
+        <activity android:name=".HomepageUser" />
+        <activity android:name=".register.RegisterOwner" />
+        <activity android:name=".login.LoginOwner" />
+        <activity android:name=".register.RegisterUser" />
+        <activity android:name=".login.LoginUser" />
         <activity android:name=".AsOwner" />
         <activity android:name=".AsUser" />
         <activity android:name=".UserOrOwner" />

@@ -15,10 +15,19 @@ public class FormOrder extends AppCompatActivity {
 
         ImageButton home = findViewById(R.id.btnBackSearch);
         home.setOnClickListener(v -> openSearch());
+
+        ImageButton detail = findViewById(R.id.btnOrderDetail);
+        detail.setOnClickListener(v -> openDetail());
+    }
+
+    private void openDetail() {
+        Intent d = new Intent(FormOrder.this, detailOrder.class);
+        startActivity(d);
+        finish();
     }
 
     private void openSearch() {
-        Intent s = new Intent(FormOrder.this, SearchBar.class);
+        Intent s = new Intent(FormOrder.this, displayLaundry.class);
         startActivity(s);
         finish();
     }

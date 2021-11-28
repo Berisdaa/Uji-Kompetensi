@@ -4,10 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterUser">
+    tools:context=".register.RegisterUser">
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/regisUser"
+        android:layout_width="275dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="0.053" />
+
+    <EditText
+        android:id="@+id/regisPassUser"
         android:layout_width="275dp"
         android:layout_height="50dp"
         android:ems="20"
@@ -15,26 +29,43 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
-        app:layout_constraintVertical_bias="0.049" />
-
-    <Button
-        android:id="@+id/btnRegisterUser"
-        android:layout_width="275dp"
-        android:layout_height="50dp"
-        android:backgroundTint="#20466F"
-        android:text="REGISTER"
-        android:textSize="18sp"
-        android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintTop_toBottomOf="@+id/regisEmailUser"
+        app:layout_constraintVertical_bias="0.056" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+        android:id="@+id/regisTelpUser"
+        android:layout_width="275dp"
+        android:layout_height="50dp"
+        android:ems="20"
+        android:hint="Telp"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regisPassUser"
+        app:layout_constraintVertical_bias="0.061" />
+
+    <EditText
+        android:id="@+id/etOTP"
+        android:layout_width="275dp"
+        android:layout_height="50dp"
+        android:ems="20"
+        android:hint="OTP"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regisTelpUser"
+        app:layout_constraintVertical_bias="0.144" />
+
+
+
+    <EditText
+        android:id="@+id/regisEmailUser"
         android:layout_width="275dp"
         android:layout_height="50dp"
         android:ems="20"
@@ -42,9 +73,10 @@
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.078" />
+        app:layout_constraintTop_toBottomOf="@+id/regisUser"
+        app:layout_constraintVertical_bias="0.04" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -52,22 +84,43 @@
         android:layout_height="62dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.216"
+        app:layout_constraintVertical_bias="0.16"
         app:srcCompat="@drawable/w1" />
 
-    <EditText
-        android:id="@+id/editTextPhone"
-        android:layout_width="275dp"
+    <Button
+        android:id="@+id/btnRegisterUser"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:ems="20"
-        android:hint="Telp"
-        android:inputType="phone"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="#20466F"
+        android:text="REGISTER"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.548"
+        app:layout_constraintStart_toEndOf="@+id/btnOTP"
+        app:layout_constraintTop_toBottomOf="@+id/etOTP"
+        app:layout_constraintVertical_bias="0.97" />
+
+    <Button
+        android:id="@+id/btnOTP"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="#20466F"
+        android:text="OTP"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.213"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintTop_toBottomOf="@+id/etOTP"
+        app:layout_constraintVertical_bias="0.985" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

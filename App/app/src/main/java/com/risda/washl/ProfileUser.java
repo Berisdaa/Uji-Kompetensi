@@ -20,6 +20,15 @@ public class ProfileUser extends AppCompatActivity {
 
         Button confirm = findViewById(R.id.btnConfirmProfileUser);
         confirm.setOnClickListener(v -> ok());
+
+        Button logout = findViewById(R.id.btnLogoutUser);
+        logout.setOnClickListener(v -> Logout());
+    }
+
+    private void Logout() {
+        Intent h = new Intent(ProfileUser.this, UserOrOwner.class);
+        startActivity(h);
+        finish();
     }
 
     private void ok() {
@@ -29,5 +38,6 @@ public class ProfileUser extends AppCompatActivity {
     private void openHome() {
         Intent h = new Intent(ProfileUser.this, HomepageUser.class);
         startActivity(h);
+        finish();
     }
 }

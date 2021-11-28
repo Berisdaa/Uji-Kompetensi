@@ -22,6 +22,15 @@ public class SettingProfileOwner extends AppCompatActivity {
         Button confirm = findViewById(R.id.btnRegisterFinal2);
         logout.setOnClickListener(v -> logOut());
         confirm.setOnClickListener(v -> conFirm());
+
+        Button setProduk = findViewById(R.id.btnSettingProduk);
+        setProduk.setOnClickListener(v -> openSetProduk());
+    }
+
+    private void openSetProduk() {
+        Intent l = new Intent(SettingProfileOwner.this, SettingProduk.class);
+        startActivity(l);
+        finish();
     }
 
     private void conFirm() {
@@ -29,7 +38,7 @@ public class SettingProfileOwner extends AppCompatActivity {
     }
 
     private void logOut() {
-        Intent l = new Intent(SettingProfileOwner.this, AsOwner.class);
+        Intent l = new Intent(SettingProfileOwner.this, UserOrOwner.class);
         startActivity(l);
         finish();
     }

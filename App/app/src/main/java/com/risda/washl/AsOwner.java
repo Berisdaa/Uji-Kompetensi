@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.risda.washl.login.LoginOwner;
+import com.risda.washl.register.RegisterOwner;
+
 public class AsOwner extends AppCompatActivity {
     private Button button, button2;
     @Override

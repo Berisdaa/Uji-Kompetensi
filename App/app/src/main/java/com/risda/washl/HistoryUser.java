@@ -1,17 +1,33 @@
 package com.risda.washl;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageButton;
 
-import java.util.ArrayList;
+import com.risda.washl.modal.GetOrder;
+import com.risda.washl.modal.Order;
+import com.risda.washl.rest.ApiClient;
+import com.risda.washl.rest.ApiInterface;
+
+import java.util.List;
+
+import retrofit2.Callback;
+import retrofit2.Call;
+import retrofit2.Response;
 
 public class HistoryUser extends AppCompatActivity {
+
+    ApiInterface hApiInterface;
+    private RecyclerView hRecyclerView;
+    private RecyclerView.Adapter hAdapter;
+    private RecyclerView.LayoutManager hLayoutManager;
+    public static HistoryUser ma;
+
 
 
     @Override
@@ -19,26 +35,37 @@ public class HistoryUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_user);
 
+
         ImageButton home = findViewById(R.id.btnBackHistoryUser);
         home.setOnClickListener(v -> openHome());
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerHistoryUsr);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        historyUserStr[] historyUserStrs = new historyUserStr[]{
-                new historyUserStr("3","Diana Laundry","Gedangan","Cuci Kering"),
-                new historyUserStr("2","Diana Laundry","Gedangan","Cuci Kering"),
-                new historyUserStr("4","Sarah Laundry","Candi","Cuci Basah"),
-                new historyUserStr("5","Pras Laundry","Buduran","Setrika"),
-                new historyUserStr("7","Pras Laundry","Buduran","Cuci Setrika"),
-                new historyUserStr("10","Pras Laundry","Buduran","Cuci Setrika"),
-                new historyUserStr("9","Sarah laundry","Candi","Cuci Basah"),
-        };
+        hRecyclerView = findViewById(R.id.recyclerHistoryUsr);
+        hLayoutManager = new LinearLayoutManager(this);
+        hRecyclerView.setLayoutManager(hLayoutManager);
+        hApiInterface = ApiClient.getClient().create(ApiInterface.class);
+        ma=this;
+        panggilRetrofit();
 
-       historyUserAdapter HistoryUserAdapter = new historyUserAdapter(historyUserStrs, HistoryUser.this);
-       recyclerView.setAdapter(HistoryUserAdapter);
+    }
 
+    private void panggilRetrofit() {
+        Call<GetOrder> OrderCall = hApiInterface.getOrder();
+        OrderCall.enqueue(new Callback<GetOrder>() {
+            @Override
+            public void onResponse(Call<GetOrder> call, Response<GetOrder>
+                    response) {
+                List<Order> OrderList = response.body().getData();
+                Log.d("Retrofit Get","Jumlah data Kontak: " + String.valueOf(OrderList.size()));
+                hAdapter = new historyUserAdapter(OrderList);
+                hRecyclerView.setAdapter(hAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<GetOrder> call, Throwable t) {
+                Log.e("Retrofit Get", t.toString());
+            }
+        });
     }
 
 

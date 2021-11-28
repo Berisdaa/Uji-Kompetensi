@@ -2,13 +2,10 @@ package com.risda.washl;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,60 +13,94 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.risda.washl.modal.Order;
+
+import java.util.List;
+
 public class approvalAdapter extends RecyclerView.Adapter<approvalAdapter.ViewHolder> {
 
-    Dialog dialog;
-    approvalStr[] approvalStrs;
+    Dialog myDialog;
+    List<Order> OrderList3;
     Context context;
-
-    public approvalAdapter(approvalStr[] approvalStrs, Approval activity){
-        this.approvalStrs = approvalStrs;
-        this.context = activity;
+    public approvalAdapter(List <Order> OrderList3  ) {
+        this.OrderList3 = OrderList3;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.listitem_approval,parent,false);
-        ViewHolder viewHolder = new ViewHolder(view);
-        return viewHolder;
+        View hView = LayoutInflater.from(parent.getContext()).inflate(R.layout.listitem_approval, parent, false);
+        ViewHolder hViewHolder = new ViewHolder(hView);
+        return hViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull approvalAdapter.ViewHolder holder, int position) {
-        final approvalStr approvalStrList = approvalStrs[position];
-        holder.tvBeratOd.setText(approvalStrList.getBeratOrder());
-        holder.tvUserOd.setText(approvalStrList.getUserOrder());
-        holder.tvAlamatOd.setText(approvalStrList.getAlamatOrder());
-        holder.tvCucianOd.setText(approvalStrList.getCucianOrder());
+        if (OrderList3.get(position).getStatus() == 0) {
+            holder.tvUserOd.setText(OrderList3.get(position).getPelanggan());
+            holder.tvAlamatOd.setText(OrderList3.get(position).getAlamat());
+            holder.tvCucianOd1.setText(String.valueOf(OrderList3.get(position).getBerat1()));
+            holder.tvCucianOd2.setText(String.valueOf(OrderList3.get(position).getBerat2()));
+            holder.tvCucianOd3.setText(String.valueOf(OrderList3.get(position).getBerat3()));
+            holder.tvCucianOd4.setText(String.valueOf(OrderList3.get(position).getBerat4()));
+            holder.tgl.setText(OrderList3.get(position).getTglorder());
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                    myDialog = new Dialog(v.getContext());
+                    myDialog.setContentView(R.layout.dialog_approval);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        myDialog.create();
 
-                Toast.makeText(context, "NANTI YAA DI PROSES", Toast.LENGTH_SHORT).show();
+                        Button btnNo = myDialog.findViewById(R.id.btnOrderTidak);
+                        btnNo.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                myDialog.dismiss();
+                            }
+                        });
 
-            }
-        });
+                        Button btnYes = myDialog.findViewById(R.id.btnOrderYa);
+                        btnYes.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(v.getContext(), "Pesanan Diterima", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                    myDialog.show();
+
+                }
+            });
+        }else {
+            holder.itemView.setVisibility(View.GONE);
+            holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
+        }
     }
 
     @Override
     public int getItemCount() {
-        return approvalStrs.length;
+        return OrderList3.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-            TextView tvBeratOd;
             TextView tvUserOd;
             TextView tvAlamatOd;
-            TextView tvCucianOd;
+            TextView tvCucianOd1;
+        TextView tvCucianOd2;
+        TextView tvCucianOd3;
+        TextView tvCucianOd4;
+        TextView tgl;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvBeratOd = itemView.findViewById(R.id.tvBeratOrder);
             tvUserOd = itemView.findViewById(R.id.tvUserOrder);
             tvAlamatOd = itemView.findViewById(R.id.tvAlamatOrder);
-            tvCucianOd = itemView.findViewById(R.id.tvCucianOrder);
+            tvCucianOd1 = itemView.findViewById(R.id.tvCucianOrder1);
+            tvCucianOd2 = itemView.findViewById(R.id.tvCucianOrder2);
+            tvCucianOd3 = itemView.findViewById(R.id.tvCucianOrder3);
+            tvCucianOd4 = itemView.findViewById(R.id.tvCucianOrder4);
+            tgl = itemView.findViewById(R.id.tglApproval);
         }
     }
 }

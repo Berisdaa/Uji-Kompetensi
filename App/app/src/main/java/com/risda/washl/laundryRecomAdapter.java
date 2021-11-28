@@ -10,36 +10,47 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.risda.washl.modal.Menu;
+
+
+import java.util.List;
+
 public class laundryRecomAdapter extends RecyclerView.Adapter<laundryRecomAdapter.ViewHolder> {
 
-    laundryRecomStr[] laundryRecomStrs;
+    //List<Kategori> KategoriList;
+    List<Menu> MenuList;
     Context context;
 
-    public laundryRecomAdapter(laundryRecomStr[] laundryRecomStrs, HomepageUser activity) {
-        this.laundryRecomStrs = laundryRecomStrs;
-        this.context = activity;
-    }
-
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.listitem_laundryhome,parent,false);
-        ViewHolder viewHolder = new ViewHolder(view);
-        return viewHolder;
+    public laundryRecomAdapter(List <Menu> MenuList ) {
+        this.MenuList = MenuList;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull laundryRecomAdapter.ViewHolder holder, int position) {
-        final laundryRecomStr laundryRecomStrList = laundryRecomStrs[position];
-        holder.tvLaundryHome.setText(laundryRecomStrList.getNamaLdrHome());
-        holder.tvAlamat1Ldr.setText(laundryRecomStrList.getAlamat1Home());
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View kView = LayoutInflater.from(parent.getContext()).inflate(R.layout.listitem_laundryhome, parent, false);
+        ViewHolder kViewHolder = new ViewHolder(kView);
+        return kViewHolder;
+    }
 
+    @Override
+    public void onBindViewHolder(laundryRecomAdapter.ViewHolder holder,int position) {
+        holder.mTextViewNama.setText(MenuList.get(position).getMenu());
+        holder.mTextViewAlamat1.setText(MenuList.get(position).getAlamat1());
+        holder.getmTextViewAlamat2.setText(MenuList.get(position).getAlamat2());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, displayLaundry.class);
-                context.startActivity(intent);
+
+                Intent intent = new Intent(v.getContext(), displayLaundry.class);
+                intent.putExtra("nama", MenuList.get(position).getMenu());
+                intent.putExtra("gambar", MenuList.get(position).getGambar());
+                intent.putExtra("harga", MenuList.get(position).getHarga());
+                intent.putExtra("harga2", MenuList.get(position).getHarga2());
+                intent.putExtra("harga3", MenuList.get(position).getHarga3());
+                intent.putExtra("harga4", MenuList.get(position).getHarga4());
+
+                v.getContext().startActivity(intent);
+
             }
         });
 
@@ -47,17 +58,19 @@ public class laundryRecomAdapter extends RecyclerView.Adapter<laundryRecomAdapte
 
     @Override
     public int getItemCount() {
-        return laundryRecomStrs.length;
+        return MenuList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView tvLaundryHome;
-        TextView tvAlamat1Ldr;
+        public TextView mTextViewNama, mTextViewAlamat1, getmTextViewAlamat2;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvLaundryHome = itemView.findViewById(R.id.laundryHome);
-            tvAlamat1Ldr = itemView.findViewById(R.id.alamatOwnerHome);
+            mTextViewNama = itemView.findViewById(R.id.tvNama);
+            mTextViewAlamat1 = itemView.findViewById(R.id.tvAlamat);
+            getmTextViewAlamat2 = itemView.findViewById(R.id.tvAlamat2);
+        }
         }
     }
-}
+

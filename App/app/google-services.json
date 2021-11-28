@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "791276616975",
+    "project_id": "washl-7dab3",
+    "storage_bucket": "washl-7dab3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:791276616975:android:41bf5be1200af2b22cd27a",
+        "android_client_info": {
+          "package_name": "com.risda.washl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "791276616975-fs82ijc8f4p23vpstnkth5r63uhnu3sq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.risda.washl",
+            "certificate_hash": "27dd6539a40066190ff2ec251cf1d03b5dc9bc25"
+          }
+        },
+        {
+          "client_id": "791276616975-eaiji3skd2o0jrqgf9jj1n8439u46rcr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXh8DDoRzVTB12B_ZwzF6IUv0P3PgG3pw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "791276616975-eaiji3skd2o0jrqgf9jj1n8439u46rcr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

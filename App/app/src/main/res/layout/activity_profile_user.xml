@@ -6,20 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ProfileUser">
 
-    <Button
-        android:id="@+id/btnConfirmProfileUser"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#20466F"
-        android:text="CONFIRM"
-        android:textColor="#FFFFFF"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone3"
-        app:layout_constraintVertical_bias="0.783" />
+
 
     <TextView
         android:id="@+id/textView34"
@@ -89,4 +76,34 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName18" />
+
+    <Button
+        android:id="@+id/btnConfirmProfileUser"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#20466F"
+        android:text="CONFIRM"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhone3"
+        app:layout_constraintVertical_bias="0.593" />
+
+    <Button
+        android:id="@+id/btnLogoutUser"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#E83535"
+        android:text="LOG OUT"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnConfirmProfileUser"
+        app:layout_constraintVertical_bias="0.361" />
 </androidx.constraintlayout.widget.ConstraintLayout>

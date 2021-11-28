@@ -1,26 +1,32 @@
 package com.risda.washl;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.GridView;
+import android.util.Log;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
+
+import com.risda.washl.modal.GetPelanggan;
+import com.risda.washl.modal.Pelanggan;
+import com.risda.washl.rest.ApiClient;
+import com.risda.washl.rest.ApiInterface;
+
+import java.util.List;
+
+import retrofit2.Callback;
+import retrofit2.Call;
+import retrofit2.Response;
 
 public class CustomerList extends AppCompatActivity {
 
-    GridView gridView;
-
-    String[] names = {"Andi","Rudi","Sarah","Bella","Reno","Bianca","Yuki","Jaemin","Natasha","Jake"};
-    int[] images = {R.drawable.filename,R.drawable.filename,R.drawable.filename,R.drawable.filename,R.drawable.filename,R.drawable.filename,R.drawable.filename,R.drawable.filename,R.drawable.filename,R.drawable.filename};
+    ApiInterface cApiInterface;
+    private RecyclerView cRecyclerView;
+    private RecyclerView.Adapter cAdapter;
+    private RecyclerView.LayoutManager cLayoutManager;
+    public static CustomerList ma;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +36,33 @@ public class CustomerList extends AppCompatActivity {
         ImageButton home = findViewById(R.id.btnBackHome);
         home.setOnClickListener(v -> openHome());
 
-        gridView = findViewById(R.id.gridCustomer);
-        customerAdapter CustomerAdapter = new customerAdapter(names, images, this);
-        gridView.setAdapter(CustomerAdapter);
+        cRecyclerView = findViewById(R.id.recyclerCustomer);
+        cLayoutManager = new LinearLayoutManager(this);
+        cRecyclerView.setLayoutManager(cLayoutManager);
+        cApiInterface = ApiClient.getClient().create(ApiInterface.class);
+        ma=this;
+        panggilRetrofit();
 
+    }
+
+    private void panggilRetrofit() {
+        Call<GetPelanggan> PelangganCall = cApiInterface.getPelanggan();
+        PelangganCall.enqueue(new Callback<GetPelanggan>() {
+            @Override
+            public void onResponse(Call<GetPelanggan> call, Response<GetPelanggan>
+                    response) {
+                List<Pelanggan> PelangganList = response.body().getData();
+                Log.d("Retrofit Get", "pelanggan" +
+                        String.valueOf(PelangganList.size()));
+                cAdapter = new CustomerAdapter(PelangganList);
+                cRecyclerView.setAdapter(cAdapter);
+            }
+
+                @Override
+                public void onFailure(Call<GetPelanggan> call, Throwable t) {
+                    Log.e("Retrofit Get", t.toString());
+                }
+            });
     }
 
     private void openHome() {
@@ -41,50 +70,6 @@ public class CustomerList extends AppCompatActivity {
         startActivity(r);
     }
 
-    public class customerAdapter extends BaseAdapter{
-        private String[] imageNames;
-        private int[] imagesPhoto;
-        private Context context;
-        private LayoutInflater layoutInflater;
 
-        public customerAdapter(String[] imageNames, int[] imagesPhoto, Context context) {
-            this.imageNames = imageNames;
-            this.imagesPhoto = imagesPhoto;
-            this.context = context;
-            this.layoutInflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
-        }
-
-        @Override
-        public int getCount() {
-            return imagesPhoto.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View view, ViewGroup viewGroup) {
-
-            if (view == null){
-                view = layoutInflater.inflate(R.layout.row_customer, viewGroup, false);
-            }
-
-            TextView tvCustomer = view.findViewById(R.id.tvUserList);
-            ImageView customerPic = view.findViewById(R.id.baseCustomer);
-
-
-            tvCustomer.setText(imageNames[position]);
-            customerPic.setImageResource(imagesPhoto[position]);
-
-            return view;
-        }
-    }
 
 }

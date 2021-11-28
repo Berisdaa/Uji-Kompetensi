@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.risda.washl.register.RegisterOwner;
+
 
 public class UserOrOwner extends AppCompatActivity {
 
@@ -27,12 +29,12 @@ public class UserOrOwner extends AppCompatActivity {
     }
 
     public void openAsUser(){
-        Intent u = new Intent(this, AsUser.class);
+        Intent u = new Intent(this, HomepageUser.class);
         startActivity(u);
     }
 
     public void openAsOwner(){
-        Intent o = new Intent(this, AsOwner.class);
+        Intent o = new Intent(this, RegisterOwner.class);
         startActivity(o);
     }
 

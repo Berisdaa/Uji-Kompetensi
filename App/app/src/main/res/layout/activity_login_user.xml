@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginUser">
+    tools:context=".login.LoginUser">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -14,11 +14,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.317"
+        app:layout_constraintVertical_bias="0.206"
         app:srcCompat="@drawable/w1" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/etEmailUser"
         android:layout_width="275dp"
         android:layout_height="50dp"
         android:ems="20"
@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="0.078" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/etPwUser"
         android:layout_width="275dp"
         android:layout_height="50dp"
         android:ems="20"
@@ -40,8 +40,37 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
+        app:layout_constraintTop_toBottomOf="@+id/etEmailUser"
         app:layout_constraintVertical_bias="0.049" />
+
+    <TextView
+        android:id="@+id/akunUsr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blum Punya Akun?"
+        android:textColor="#474747"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.355"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPwUser"
+        app:layout_constraintVertical_bias="0.048" />
+
+    <Button
+        android:id="@+id/daftarUsr"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:backgroundTint="@color/white"
+        android:text="Daftar"
+        android:textColor="#0921AA"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.664"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPwUser"
+        app:layout_constraintVertical_bias="0.029" />
 
     <Button
         android:id="@+id/btnLoginUser"
@@ -54,6 +83,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintTop_toBottomOf="@+id/etPwUser"
+        app:layout_constraintVertical_bias="0.795" />
 </androidx.constraintlayout.widget.ConstraintLayout>

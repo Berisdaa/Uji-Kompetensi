@@ -6,9 +6,27 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageButton;
 
+import com.risda.washl.modal.GetOrder;
+import com.risda.washl.modal.Order;
+import com.risda.washl.rest.ApiClient;
+import com.risda.washl.rest.ApiInterface;
+
+import java.util.List;
+
+import retrofit2.Callback;
+import retrofit2.Call;
+import retrofit2.Response;
+
 public class CompletedOrderOwner extends AppCompatActivity {
+
+    ApiInterface hApiInterface;
+    private RecyclerView hRecyclerView;
+    private RecyclerView.Adapter hAdapter;
+    private RecyclerView.LayoutManager hLayoutManager;
+    public static CompletedOrderOwner ma;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,22 +35,32 @@ public class CompletedOrderOwner extends AppCompatActivity {
         ImageButton home = findViewById(R.id.btnBackHome4);
         home.setOnClickListener(v -> openHome());
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerCompleteOrder);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        completeOrder[] completeOrders = new completeOrder[]{
-                new completeOrder("2", "Rianti anna", "Candi", "Cuci Basah"),
-                new completeOrder("4", "Adi Ahmad", "Sukodono","Cuci Kering"),
-                new completeOrder("5", "Yanuar", "Kemiri", "Setrika"),
-                new completeOrder("4", "Amanda", "Gedangan", "Cuci Setrika"),
-                new completeOrder("5", "Yanuar", "Kemiri", "Cuci Basah"),
-                new completeOrder("3", "Yudiono", "Tanggulangin", "Cuci Setrika"),
-                new completeOrder("7", "Jasmine", "Buduran", "Cuci Kering"),
-        };
+        hRecyclerView = findViewById(R.id.recyclerCompleteOrder);
+        hLayoutManager = new LinearLayoutManager(this);
+        hRecyclerView.setLayoutManager(hLayoutManager);
+        hApiInterface = ApiClient.getClient().create(ApiInterface.class);
+        ma=this;
+        panggilRetrofit();
+    }
 
-        completeOrderAdapter CompleteOrderAdapter = new completeOrderAdapter(completeOrders, CompletedOrderOwner.this);
-        recyclerView.setAdapter(CompleteOrderAdapter);
+    private void panggilRetrofit() {
+        Call<GetOrder> OrderCall = hApiInterface.getOrder();
+        OrderCall.enqueue(new Callback<GetOrder>() {
+            @Override
+            public void onResponse(Call<GetOrder> call, Response<GetOrder>
+                    response) {
+                List<Order> OrderList2 = response.body().getData();
+                Log.d("Retrofit Get","Jumlah data Kontak: " + String.valueOf(OrderList2.size()));
+                hAdapter = new completeOrderAdapter(OrderList2);
+                hRecyclerView.setAdapter(hAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<GetOrder> call, Throwable t) {
+                Log.e("Retrofit Get", t.toString());
+            }
+        });
     }
 
     private void openHome() {

@@ -6,10 +6,27 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.util.Log;
 import android.widget.ImageButton;
 
+import com.risda.washl.modal.GetOrder;
+import com.risda.washl.modal.Order;
+import com.risda.washl.rest.ApiClient;
+import com.risda.washl.rest.ApiInterface;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class Approval extends AppCompatActivity {
+
+    ApiInterface hApiInterface;
+    private RecyclerView hRecyclerView;
+    private RecyclerView.Adapter hAdapter;
+    private RecyclerView.LayoutManager hLayoutManager;
+    public static Approval ma;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,23 +36,32 @@ public class Approval extends AppCompatActivity {
         ImageButton home = findViewById(R.id.btnBackHome3);
         home.setOnClickListener(v -> openHome());
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerOrder);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        hRecyclerView = findViewById(R.id.recyclerOrder);
+        hLayoutManager = new LinearLayoutManager(this);
+        hRecyclerView.setLayoutManager(hLayoutManager);
+        hApiInterface = ApiClient.getClient().create(ApiInterface.class);
+        ma=this;
+        panggilRetrofit();
 
-        approvalStr[] approvalStrs = new approvalStr[]{
-                new approvalStr("8", "Irish", "Berlin", "Cuci Kering"),
-                new approvalStr("9", "Reihan", "Jakarta", "Cuci Basah"),
-                new approvalStr("5", "Yuki", "Tokyo", "Cuci Basah"),
-                new approvalStr("2", "Rio", "Barcelona", "Cuci Setrika"),
-                new approvalStr("4", "Maria", "Adelaide", "Setrika"),
-                new approvalStr("7", "Christy", "London", "Cuci Kering"),
-                new approvalStr("3", "Sheila", "New York", "Setrika"),
-        };
+    }
 
-        approvalAdapter ApprovalAdapter = new approvalAdapter(approvalStrs, Approval.this);
-        recyclerView.setAdapter(ApprovalAdapter);
+    private void panggilRetrofit() {
+        Call<GetOrder> OrderCall = hApiInterface.getOrder();
+        OrderCall.enqueue(new Callback<GetOrder>() {
+            @Override
+            public void onResponse(Call<GetOrder> call, Response<GetOrder>
+                    response) {
+                List<Order> OrderList3 = response.body().getData();
+                Log.d("Retrofit Get","Jumlah data Kontak: " + String.valueOf(OrderList3.size()));
+                hAdapter = new approvalAdapter(OrderList3);
+                hRecyclerView.setAdapter(hAdapter);
+            }
 
+            @Override
+            public void onFailure(Call<GetOrder> call, Throwable t) {
+                Log.e("Retrofit Get", t.toString());
+            }
+        });
     }
 
 
