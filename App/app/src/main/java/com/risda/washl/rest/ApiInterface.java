@@ -1,9 +1,13 @@
 package com.risda.washl.rest;
 
+import com.risda.washl.login.GetLoginEmail;
+import com.risda.washl.login.GetNewPassword;
+import com.risda.washl.login.LoginEmail;
 import com.risda.washl.login.LoginRequest;
 import com.risda.washl.login.LoginRequestOwner;
 import com.risda.washl.login.LoginResponse;
 import com.risda.washl.login.LoginResponseOwner;
+import com.risda.washl.login.NewPassword;
 import com.risda.washl.modal.Beli;
 import com.risda.washl.modal.GetBeli;
 import com.risda.washl.modal.GetKategori;
@@ -24,6 +28,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Path;
 
 public interface ApiInterface {
 
@@ -52,6 +57,13 @@ public interface ApiInterface {
 
     @POST("/api/login")
     Call<LoginResponse> loginUser(@Body LoginRequest loginRequest);
+
+    @POST("/api/loginpass")
+    Call<GetLoginEmail> loginEmail(@Body LoginEmail loginEmail);
+
+    @POST("/api/user/{id}")
+    Call<GetNewPassword> NewPassword(@Path("id") Integer id,
+                                     @Body NewPassword newPassword);
 
     @POST("/api/register")
     Call<RegisterResponse> registerUser(@Body RegisterRequest registerRequest);

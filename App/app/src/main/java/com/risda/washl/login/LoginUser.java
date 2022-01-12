@@ -8,9 +8,11 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.risda.washl.HomepageUser;
+import com.risda.washl.LupaPasswordUser1;
 import com.risda.washl.R;
 import com.risda.washl.register.RegisterUser;
 import com.risda.washl.rest.ApiClient;
@@ -20,7 +22,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginUser extends AppCompatActivity {
-    Button login, daftar;
+    Button login;
+    TextView daftar, gantiPw;
     EditText etEmailUser, etPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,9 @@ public class LoginUser extends AppCompatActivity {
 
         daftar = findViewById(R.id.daftarUsr);
         daftar.setOnClickListener(v -> Daftar());
+
+        gantiPw = findViewById(R.id.gantiPwUsr);
+        gantiPw.setOnClickListener(v -> GantiPw());
 
         etEmailUser = findViewById(R.id.etEmailUser);
         etPassword = findViewById(R.id.etPwUser);
@@ -52,6 +58,11 @@ public class LoginUser extends AppCompatActivity {
         });
 
 
+    }
+
+    private void GantiPw() {
+        Intent d = new Intent(LoginUser.this, LupaPasswordUser1.class);
+        startActivity(d);
     }
 
     private void Daftar() {
